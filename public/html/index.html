@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zen Timer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+        <style>
+            .progress {
+                height: 300px;
+            }
+            .progress > svg {
+                height: 100%;
+                display: block;
+            }
+        </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <div>
+      <h1 id="timerStateText" align="center">
+        <span id="workText">Work Time</span>
+        <!-- <spand id="breakText">Break Time</spand> -->
+      </h1>
+      <!-- <p id="workText" align="center">Work Time</p>
+      <p id="breakText" >Break Time</p> -->
+  </div>
+  <!--Work/Break Timer Text-->
+  <div class= "container">
+    <div class="row">
+
+      <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6 col-lg-offset-2 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
+        <h1 id="timer">
+          <span id="minutes">25</span>:<span id="seconds">00</span>
+        </h1>
+
+        <div>
+          <div class="col-lg-offset-0 col-md-offset-3 col-sm-offset-12 col-xs-offset-12" align="center">
+            <button id="plus" type="button" class="btn btn-md btn-success">+</button>
+            <button id="minus" type="button" class="btn btn-md btn-danger">-</button>
+          </div>
+        </div>
+        <p></p>
+        <!--Plus/Minus button section-->
+      </div>
+      <!--Timer section-->
+      <div>
+        <p>
+          <button id="start" type="button" class="btn btn-lg btn-block btn-success">START</button>
+        </p>
+      </div>
+      <!--Start button section-->
+      <div>
+        <p>
+          <button id="pause" type="button" class="btn btn-xs btn-block btn-warning">PAUSE</button>
+        </p>
+      </div>
+      <!--Pause button section-->
+      <div>
+        <p>
+          <button id="break" type="button" class="btn btn-lg btn-block btn-danger disabled" disabled>BREAK</button>
+        </p>
+      </div>
+      <!--Break Timer section-->
+      <div>
+        <p>
+          <button id="reset" type="button" class="btn btn-xs btn-block btn-info">RESET</button>
+        </p>
+      </div>
+      <!--Reset button section-->
+
+    </div>
+  </div>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>

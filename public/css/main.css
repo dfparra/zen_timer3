@@ -1,0 +1,49 @@
+html{
+  background-color: #2C3E50;
+}
+
+body{
+  padding-top: 70px;
+  background-color: #2C3E50;
+
+
+}
+
+/*#plus{
+
+}
+
+#minus{
+
+}*/
+
+#timerStateText{
+  font-size: 50px;
+  color: white;
+}
+
+#timer{
+  font-size: 300px;
+  /*padding-left: 240px;*/
+  color: white;
+}
+
+#start{
+  color: black;
+
+}
+
+#break{
+  color: black;
+
+}
+
+#pause{
+  color: black;
+
+}
+
+#reset{
+  color: black;
+
+}
