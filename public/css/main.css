@@ -23,7 +23,7 @@ body{
 }
 
 #timer{
-  font-size: 300px;
+  font-size: 100px;
   /*padding-left: 240px;*/
   color: white;
 }
@@ -46,4 +46,24 @@ body{
 #reset{
   color: black;
 
+}
+
+#progress {
+    height: 300px;
+    background-color: #2C3E50;
+
+}
+#progress > svg {
+    height: 100%;
+    display: block;
+}
+
+#progress2 {
+    height: 300px;
+    background-color: #2C3E50;
+
+}
+#progress2 > svg {
+    height: 100%;
+    display: block;
 }

@@ -1,13 +1,3 @@
-// window.onload = function onLoad() {
-//     var circle = new ProgressBar.Circle('#progress', {
-//         color: '#FCB03C',
-//         duration: 3000,
-//         easing: 'easeInOut'
-//     });
-//
-//     circle.animate(1);
-// };
-
 $(document).ready(function(){
   var start = $('#start');
   var minutes = $('#minutes');
@@ -22,13 +12,50 @@ $(document).ready(function(){
 
 
 
-  var circle = new ProgressBar.Circle('#progress', {
-      color: '#FCB03C',
-      duration: 20000,
-      easing: 'easeInOut'
+  var bar2 = new ProgressBar.Circle('#progress2', {
+    // var minutesVal = (+minutes.text()) *1000;
+    color: '#aaa',
+    // This has to be the same size as the maximum width to
+    // prevent clipping
+    strokeWidth: 4,
+    trailWidth: 1,
+    easing: 'easeInOut',
+    duration: 60000,
+    text: {
+      autoStyleContainer: false
+    },
   });
 
-  // circle.animate(1);
+  var bar = new ProgressBar.Circle('#progress', {
+    color: '#aaa',
+    // This has to be the same size as the maximum width to
+    // prevent clipping
+    strokeWidth: 4,
+    trailWidth: 1,
+    easing: 'easeInOut',
+    duration: 300000,
+    text: {
+      autoStyleContainer: false
+    },
+    // from: { color: '#aaa', width: 1 },
+    // to: { color: '#333', width: 4 },
+    // // Set default step function for all animate calls
+    // step: function(state, circle) {
+    //   circle.path.setAttribute('stroke', state.color);
+    //   circle.path.setAttribute('stroke-width', state.width);
+    //
+    //   var value = Math.round(circle.value() * this.duration);
+    //   if (value === 0) {
+    //     circle.setText('');
+    //   } else {
+    //     circle.setText(value);
+    //   }
+    //
+    // }
+  });
+  // bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+  // bar.text.style.fontSize = '2rem';
+
 
 
 
@@ -60,9 +87,9 @@ $(document).ready(function(){
   }
 
   function resetTimer(){
-    timerText.text("Work Time");
+    timerText.text("Zen Time");
 
-    minutes.text('25');
+    minutes.text('15');
     seconds.text('00');
     stopCountdown();
   }
@@ -89,7 +116,8 @@ $(document).ready(function(){
   function startCountdown(){
 
     //starts drawing the circle
-    circle.animate(1);
+    bar.animate(1);
+    bar2.animate(1);
 
 
     countdown = setInterval(function(){
