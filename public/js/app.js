@@ -14,7 +14,7 @@ $(document).ready(function(){
 
   var bar2 = new ProgressBar.Circle('#progress2', {
     // var minutesVal = (+minutes.text()) *1000;
-    color: '#aaa',
+    color: '#FFEE58',
     // This has to be the same size as the maximum width to
     // prevent clipping
     strokeWidth: 4,
@@ -27,7 +27,7 @@ $(document).ready(function(){
   });
 
   var bar = new ProgressBar.Circle('#progress', {
-    color: '#aaa',
+    color: '#E82418',
     // This has to be the same size as the maximum width to
     // prevent clipping
     strokeWidth: 4,
@@ -37,24 +37,9 @@ $(document).ready(function(){
     text: {
       autoStyleContainer: false
     },
-    // from: { color: '#aaa', width: 1 },
-    // to: { color: '#333', width: 4 },
-    // // Set default step function for all animate calls
-    // step: function(state, circle) {
-    //   circle.path.setAttribute('stroke', state.color);
-    //   circle.path.setAttribute('stroke-width', state.width);
-    //
-    //   var value = Math.round(circle.value() * this.duration);
-    //   if (value === 0) {
-    //     circle.setText('');
-    //   } else {
-    //     circle.setText(value);
-    //   }
-    //
-    // }
+
   });
-  // bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-  // bar.text.style.fontSize = '2rem';
+
 
 
 
@@ -116,8 +101,8 @@ $(document).ready(function(){
   function startCountdown(){
 
     //starts drawing the circle
-    bar.animate(1);
-    bar2.animate(1);
+    bar.animate(1,{duration: (+minutes.text()*60000)+ (+seconds.text()*1000) });
+    bar2.animate(1); //duration 1 minute diefined above in the declaration
 
 
     countdown = setInterval(function(){
@@ -131,6 +116,8 @@ $(document).ready(function(){
         return;
       }
       if(secondsVal === 0){
+        bar2.set(0);
+        bar2.animate(1);
         minutes.text(minutesVal-1);
         seconds.text(59);
       } else{
