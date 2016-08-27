@@ -9,11 +9,12 @@ $(document).ready(function(){
   var minusBtn = $('#minus');
   var timerText = $('#timerStateText');
   var countdown;
+  var barCustomValue = 0;
+  var bar2CustomValue = 0;
 
 
 
   var bar2 = new ProgressBar.Circle('#progress2', {
-    // var minutesVal = (+minutes.text()) *1000;
     color: '#FFEE58',
     // This has to be the same size as the maximum width to
     // prevent clipping
@@ -72,14 +73,27 @@ $(document).ready(function(){
   }
 
   function resetTimer(){
+    bar.set(0);
+    bar2.set(0);
+    bar.value(0);
+    bar2.value(0);
+    barCustomValue = 0;
+    bar2CustomValue = 0;
+
     timerText.text("Zen Time");
 
-    minutes.text('15');
+    minutes.text('05');
     seconds.text('00');
     stopCountdown();
   }
 
   function pauseTimer(){
+    bar.stop();
+    bar2.stop();
+    console.log(bar.value());
+    console.log(bar2.value());
+    barCustomValue = bar.value();
+    bar2CustomValue = bar2.value();
     stopCountdown();
   }
 
@@ -99,10 +113,11 @@ $(document).ready(function(){
 
 
   function startCountdown(){
-
+    bar.set(barCustomValue);
+    bar2.set(bar2CustomValue);
     //starts drawing the circle
-    bar.animate(1,{duration: (+minutes.text()*60000)+ (+seconds.text()*1000) });
-    bar2.animate(1); //duration 1 minute diefined above in the declaration
+    bar.animate(1, {duration: (+minutes.text()*60000)+ (+seconds.text()*1000) });
+    bar2.animate(1, {duration: (+seconds.text()*1000) }); //duration 1 minute diefined above in the declaration
 
 
     countdown = setInterval(function(){
@@ -116,6 +131,10 @@ $(document).ready(function(){
         return;
       }
       if(secondsVal === 0){
+        //Play the Ping and reset the progressbar at every 1 minute interval
+        var audio = new Audio('audio/timer_ting.mp3');
+        audio.play();
+
         bar2.set(0);
         bar2.animate(1);
         minutes.text(minutesVal-1);
